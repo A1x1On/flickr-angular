@@ -5,13 +5,13 @@
     <p class="description">Search of pictures by flickr service :</p>
 
     <mat-form-field class="search">
-      <input matInput placeholder="Search here ..." [(ngModel)]="searchVal" (input)="changeSearch()">
+      <input matInput placeholder="Search here ..." [(ngModel)]="search.value" (input)="changeSearch()">
     </mat-form-field>
   </div>
 
   <div class="result">
     <div [ngBusy]="busy">
-      <div class="result__photoRow" *ngFor="let row of photos">
+      <div class="result__photoRow" *ngFor="let row of search.photos">
         <div *ngFor="let p of row" class="photo">
           <h2 class="photo__desc" title="{{p.title}}">{{p.title}}</h2>
           <img [src]="p.link" [title]="p.title" class="photo__img">
